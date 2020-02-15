@@ -3,7 +3,9 @@ from discord.ext import commands
 import sys
 import hashlib
 from urllib.parse import urlencode
+
 client = commands.Bot(command_prefix="$")
+client.remove_command("help")
 
 @client.event
 async def on_ready():
@@ -39,4 +41,6 @@ async def bye(ctx):
 async def anger(ctx):
     await ctx.send("Well that's a f***ing pain in the arse")
 
-client.run("NjcyMTkwMjI4NDY3MDIzODc2.XkfilA.l4J8_1-WsSA1yEc57iV_D_cg-RY")
+client.load_extension("cogs.help")
+
+client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xkfr_g.I3fSZBTXboGSZmAWjy8Lt2OU4KQ")
