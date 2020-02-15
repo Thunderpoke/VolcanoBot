@@ -20,4 +20,4 @@ bot.load_extension("cogs.events")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.admin")
 
-bot.run("")
+bot.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkhZBQ.N2Y90GoT-lzAx0h_C5DYkGse9Sk")

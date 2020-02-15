@@ -6,7 +6,8 @@ command_descriptions = {
             "ping": "Find out your latency!",
             "bye": "Say goodbye to the bot!",
             "anger": "Get the bot to be pissed instead of you!",
-            "help": "This command!"
+            "help": "This command!",
+            "announce": "Sends an announcement to everyone with the announcement role.",
         }
 
 
