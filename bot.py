@@ -75,4 +75,4 @@ async def _help(ctx, command=""):
     await ctx.message.add_reaction(emoji='✉')
     await ctx.message.author.send('', embed=heading)
 
-client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgjsA.6DdqO1oYLnuztUV6fDpaSM8oJnw")
+client.run("")
