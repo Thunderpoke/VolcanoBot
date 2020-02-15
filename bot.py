@@ -16,6 +16,7 @@ client.load_extension("cogs.fun")
 client.load_extension("cogs.events")
 client.load_extension("cogs.help")
 
+
 @client.command()
 async def purge(ctx, amount=1):
     if ctx.author.id == 525005875098812416:

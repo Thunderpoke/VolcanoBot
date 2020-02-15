@@ -1,9 +1,10 @@
-import discord
 from discord.ext import commands
+
 
 class FunCommands(commands.Cog):
     def __init__(self,bot):
         self.bot = bot
+
     @commands.command()
     async def echo(self,ctx, *, message):
         if message == "":
@@ -15,15 +16,14 @@ class FunCommands(commands.Cog):
     async def ping(self,ctx):
         await ctx.send(f'Latency is: {round(self.bot.latency*1000)}ms')
 
-
     @commands.command()
     async def bye(self,ctx):
         await ctx.send("Goodnight")
 
-
     @commands.command()
     async def anger(self,ctx):
         await ctx.send("Well that's a f***ing pain in the arse")
+
 
 def setup(bot):
     bot.add_cog(FunCommands(bot))
