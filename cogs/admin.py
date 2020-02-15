@@ -27,6 +27,7 @@ class Admin(commands.Cog):
             colour=discord.Colour.dark_gold()
         )
 
+        await ctx.channel.purge(limit=1)
         await ctx.send("<@&678334943306317862>", embed=announcement)
 
     @commands.command(name="role")
