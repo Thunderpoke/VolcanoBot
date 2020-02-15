@@ -35,8 +35,11 @@ async def on_member_remove(member):
 
 
 @client.command()
-async def echo(ctx):
-    await ctx.send(f'Hello {ctx.author}!')
+async def echo(ctx, *, message):
+    if message == "":
+        await ctx.send(f'Hello {ctx.author}!')
+    else:
+        await ctx.send(message)
 
 
 @client.command()
@@ -66,4 +69,9 @@ async def _help(ctx):
 
     await ctx.send(embed=heading)
 
-client.run("NjU2MTg1MTc4MDIwMTE4NTUx.Xkglig.WlFRw_BHElrE__PqhmaDrAKQqdc")
+@client.command()
+async def purge(ctx, amount=1):
+    if ctx.author.id == 525005875098812416:
+        await ctx.channel.purge(limit=(amount + 1))
+
+client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgsDg.ffsIlg-WmAB62xrFZDVJlQRtCQo")
