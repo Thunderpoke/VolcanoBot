@@ -5,7 +5,7 @@ class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command()
-    @commands.has_permissions(add_reactions=True,embed_links=True)
+    @commands.has_permissions(add_reactions=True, embed_links=True)
     async def help(self,ctx,*cog):
         """Gets all cogs and commands of mine."""
         try:
