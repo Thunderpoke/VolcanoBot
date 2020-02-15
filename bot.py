@@ -16,7 +16,7 @@ command_descriptions = {
     "ping": "Find out your latency!",
     "bye": "Say goodbye to the bot!",
     "anger": "Get the bot to be pissed instead of you!",
-    "help": "Load a summary of this command!"
+    "help": "This command!"
 }
 
 @client.event
@@ -26,12 +26,12 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    print(f'{member} just joined the server. Why is he allowed here?')
+    client.get_channel(658064237112983554).send(f'{member} just joined the server. Why is he allowed here?')
 
 
 @client.event
 async def on_member_remove(member):
-    print(f'Well, {member} just left the server. No more Volcano flags for him.')
+    client.get_channel(658064237112983554).send(f'Well, {member} just left the server. No more Volcano flags for him.')
 
 
 @client.command()
@@ -74,4 +74,4 @@ async def purge(ctx, amount=1):
     if ctx.author.id == 525005875098812416:
         await ctx.channel.purge(limit=(amount + 1))
 
-client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgsDg.ffsIlg-WmAB62xrFZDVJlQRtCQo")
+client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgxDw.fDBVFHWNfLU7x2rZgxURC5lf1UM")
