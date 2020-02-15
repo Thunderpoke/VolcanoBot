@@ -3,7 +3,7 @@ from discord.ext import commands
 import sys
 import hashlib
 from urllib.parse import urlencode
-client = commands.Bot(command_prefix=".$")
+client = commands.Bot(command_prefix="$")
 
 @client.event
 async def on_ready():
@@ -30,7 +30,13 @@ async def payload(ctx,*,command):
     key = "MyMamaToldMeNeverToAcceptCommandsFromStrangers"
     new_hash = hashlib.sha512((key+command).encode("utf-8")).hexdigest()
     await ctx.send("curl internal.pencilfactoryinvestments.com?"+urlencode({"command":command+":"+new_hash}))
+
 @client.command()
 async def bye(ctx):
     await ctx.send("Goodnight")
-client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xjcr4Q.qtWNSGpC6uU__T15Gc2DQsdTbE4")
+
+@client.command()
+async def anger(ctx):
+    await ctx.send("Well that's a f***ing pain in the arse")
+
+client.run("NjcyMTkwMjI4NDY3MDIzODc2.XkfilA.l4J8_1-WsSA1yEc57iV_D_cg-RY")
