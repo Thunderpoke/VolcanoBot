@@ -10,25 +10,40 @@ command_descriptions = {
         }
 
 
-class Help(commands.Cog):
+class Admin(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command()
-    async def help(self, ctx):
-        message = """Hiya there! Guess you need help..."""
+    async def announce(self, ctx, *, message=""):
+        if message == "":
+            ctx.channel.purge(limit=1)
+            ctx.send("You need to say WHAT to announce!")
+            return
 
-        heading = discord.Embed(title='Help', description=message)
-        heading.colour = discord.Colour.green()
+        announcement = discord.Embed(
+            title="Announcement!",
+            description=message,
+            colour=discord.Colour.dark_gold()
+        )
 
-        for command in command_descriptions:
-            heading.add_field(
-                name=command,
-                value=command_descriptions[command],
-                inline=False)
+        await ctx.send("<@&678334943306317862>", embed=announcement)
 
-        await ctx.send(embed=heading)
+    @commands.command(name="role")
+    async def announcements_role(self, ctx):
+        member = ctx.message.author
+        role = discord.utils.get(member.guild.roles, name="Announcements")
+
+        if role in member.roles:
+            await member.remove_roles(role)
+        else:
+            await member.add_roles(role)
+
+    @commands.command()
+    async def purge(self, ctx, amount=1):
+        if ctx.author.id == 525005875098812416:
+            await ctx.channel.purge(limit=(amount + 1))
 
 
 def setup(bot):
-    bot.add_cog(Help(bot))
+    bot.add_cog(Admin(bot))

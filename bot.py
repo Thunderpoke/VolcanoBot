@@ -1,3 +1,4 @@
+import discord.utils
 from discord.ext import commands
 import logging
 
@@ -11,18 +12,12 @@ handler.setFormatter(logging.Formatter(
     '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-client = commands.Bot(command_prefix="$")
-client.remove_command("help")
+bot = commands.Bot(command_prefix="$")
+bot.remove_command("help")
 
+bot.load_extension("cogs.fun")
+bot.load_extension("cogs.events")
+bot.load_extension("cogs.help")
+bot.load_extension("cogs.admin")
 
-client.load_extension("cogs.fun")
-client.load_extension("cogs.events")
-client.load_extension("cogs.help")
-
-
-@client.command()
-async def purge(ctx, amount=1):
-    if ctx.author.id == 525005875098812416:
-        await ctx.channel.purge(limit=(amount + 1))
-
-client.run("")
+bot.run("NjU2MTg1MTc4MDIwMTE4NTUx.Xkg0ig.VS6UH1wMa0CGuu34xWbWF1bwTJ4")
