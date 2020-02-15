@@ -1,6 +1,4 @@
 from discord.ext import commands
-import hashlib
-from urllib.parse import urlencode
 import logging
 
 logger = logging.getLogger('discord')
@@ -30,13 +28,7 @@ async def echo(ctx):
 
 @client.command()
 async def ping(ctx):
-    await ctx.send(f'Latency is:{round(client.latency*1000)}ms')
-
-@client.command()
-async def payload(ctx,*,command):
-    key = "MyMamaToldMeNeverToAcceptCommandsFromStrangers"
-    new_hash = hashlib.sha512((key+command).encode("utf-8")).hexdigest()
-    await ctx.send("curl internal.pencilfactoryinvestments.com?"+urlencode({"command":command+":"+new_hash}))
+    await ctx.send(f'Latency is: {round(client.latency*1000)}ms')
 
 @client.command()
 async def bye(ctx):
