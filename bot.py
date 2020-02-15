@@ -11,6 +11,13 @@ logger.addHandler(handler)
 client = commands.Bot(command_prefix="$")
 client.remove_command("help")
 
+command_descriptions = {
+    "echo": "The bot says hello, with a very personalised message!",
+    "ping": "Find out your latency!",
+    "bye": "Say goodbye to the bot!",
+    "anger": "Get the bot to be pissed instead of you!",
+    "help": "Load a summary of this command!"
+}
 
 @client.event
 async def on_ready():
@@ -48,14 +55,24 @@ async def anger(ctx):
 
 
 @client.command("help")
-async def _help(ctx):
-    heading = discord.Embed(title='Help',
-        description=
-            """Hiya there! Guess you need help...""")
+async def _help(ctx, command=""):
+    command = command.lower()
+    if command == "":
+        message = """Hiya there! Guess you need help...
+                Do !help [command] for help with a specific command!
+                Available commands:
+                """
+
+        message += '\n'.join(command_descriptions)
+
+        heading = discord.Embed(title='Help', description=message)
+    elif command in command_descriptions:
+        heading = discord.Embed(title=command.title(), description=command_descriptions[command])
+    else:
+        heading = discord.Embed(title="No command found!",
+                                description="Sorry, we have not been able to locate that command")
 
     await ctx.message.add_reaction(emoji='✉')
     await ctx.message.author.send('', embed=heading)
 
-# client.load_extension("cogs.help")
-
-client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgZnw.p7bDCiRWnj0LGKyOL3pXrb3mob4")
+client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgjsA.6DdqO1oYLnuztUV6fDpaSM8oJnw")
