@@ -12,7 +12,7 @@ command_descriptions = {
 class Help(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    @commands.command(pass_contex=True)
+    @commands.command()
     async def help(self,ctx):
         message = """Hiya there! Guess you need help..."""
 
