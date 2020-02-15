@@ -1,7 +1,6 @@
 from discord.ext import commands
 
-
-class mainEvents(commands.Cog):
+class MainEvents(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -20,6 +19,5 @@ class mainEvents(commands.Cog):
             f"""Well, {member} just left the server.
              No more Volcano flags for him.""")
 
-
 def setup(bot):
-    bot.add_cog(mainEvents(bot))
+    bot.add_cog(MainEvents(bot))
