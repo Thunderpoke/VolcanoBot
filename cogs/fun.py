@@ -24,6 +24,10 @@ class FunCommands(commands.Cog):
     async def anger(self, ctx):
         await ctx.send("Well that's a f***ing pain in the arse")
 
+    @commands.command()
+    async def tryharder(self, ctx):
+        await ctx.send("https://www.youtube.com/watch?v=t-bgRQfeW64")
+
 
 def setup(bot):
     bot.add_cog(FunCommands(bot))
