@@ -7,7 +7,7 @@ command_descriptions = {
             "bye": "Say goodbye to the bot!",
             "anger": "Get the bot to be pissed instead of you!",
             "help": "This command!",
-            "announce": "ends an announcement to everyone with the announcement role.",
+            "announce": "sends an announcement to everyone with the announcement role.",
         }
 
 
