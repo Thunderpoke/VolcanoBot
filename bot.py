@@ -22,4 +22,4 @@ async def purge(ctx, amount=1):
     if ctx.author.id == 525005875098812416:
         await ctx.channel.purge(limit=(amount + 1))
 
-client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xkg6tA.ilPi1A5ELTgboahy8AeR0v5obfo")
+client.run("")
