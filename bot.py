@@ -11,13 +11,7 @@ logger.addHandler(handler)
 client = commands.Bot(command_prefix="$")
 client.remove_command("help")
 
-command_descriptions = {
-    "echo": "The bot says hello, with a very personalised message!",
-    "ping": "Find out your latency!",
-    "bye": "Say goodbye to the bot!",
-    "anger": "Get the bot to be pissed instead of you!",
-    "help": "This command!"
-}
+
 
 @client.event
 async def on_ready():
@@ -57,21 +51,11 @@ async def anger(ctx):
     await ctx.send("Well that's a f***ing pain in the arse")
 
 
-@client.command("help")
-async def _help(ctx):
-    message = """Hiya there! Guess you need help..."""
-
-    heading = discord.Embed(title='Help', description=message)
-    heading.colour = discord.Colour.green()
-
-    for command in command_descriptions:
-        heading.add_field(name=command, value=command_descriptions[command], inline=False)
-
-    await ctx.send(embed=heading)
+client.load_extension("cogs.help")
 
 @client.command()
 async def purge(ctx, amount=1):
     if ctx.author.id == 525005875098812416:
         await ctx.channel.purge(limit=(amount + 1))
 
-client.run("NjU2MTg1MTc4MDIwMTE4NTUx.XkgxDw.fDBVFHWNfLU7x2rZgxURC5lf1UM")
+client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xkg3Vw.OA28IE7WigmtocvTEadXYgME7gM")
