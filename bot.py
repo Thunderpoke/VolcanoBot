@@ -4,7 +4,7 @@ import sys
 import hashlib
 from urllib.parse import urlencode
 client = commands.Bot(command_prefix=".$")
-
+client.remove_command("help")
 @client.event
 async def on_ready():
     print("Bot Is Ready")
@@ -33,4 +33,6 @@ async def payload(ctx,*,command):
 @client.command()
 async def bye(ctx):
     await ctx.send("Goodnight")
-client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xjcr4Q.qtWNSGpC6uU__T15Gc2DQsdTbE4")
+client.load_extension("cogs.help")
+
+client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xkfr_g.I3fSZBTXboGSZmAWjy8Lt2OU4KQ")
