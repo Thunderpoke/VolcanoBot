@@ -55,24 +55,15 @@ async def anger(ctx):
 
 
 @client.command("help")
-async def _help(ctx, command=""):
-    command = command.lower()
-    if command == "":
-        message = """Hiya there! Guess you need help...
-                Do !help [command] for help with a specific command!
-                Available commands:
-                """
+async def _help(ctx):
+    message = """Hiya there! Guess you need help..."""
 
-        message += '\n'.join(command_descriptions)
+    heading = discord.Embed(title='Help', description=message)
+    heading.colour = discord.Colour.green()
 
-        heading = discord.Embed(title='Help', description=message)
-    elif command in command_descriptions:
-        heading = discord.Embed(title=command.title(), description=command_descriptions[command])
-    else:
-        heading = discord.Embed(title="No command found!",
-                                description="Sorry, we have not been able to locate that command")
+    for command in command_descriptions:
+        heading.add_field(name=command, value=command_descriptions[command], inline=False)
 
-    await ctx.message.add_reaction(emoji='✉')
-    await ctx.message.author.send('', embed=heading)
+    await ctx.send(embed=heading)
 
-client.run("")
+client.run("NjU2MTg1MTc4MDIwMTE4NTUx.Xkglig.WlFRw_BHElrE__PqhmaDrAKQqdc")
