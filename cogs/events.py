@@ -1,5 +1,6 @@
 from discord.ext import commands
 
+
 class MainEvents(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -18,6 +19,7 @@ class MainEvents(commands.Cog):
         self.bot.get_channel(658064237112983554).send(
             f"""Well, {member} just left the server.
              No more Volcano flags for him.""")
+
 
 def setup(bot):
     bot.add_cog(MainEvents(bot))
