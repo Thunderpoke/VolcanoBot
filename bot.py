@@ -1,11 +1,14 @@
-import discord
 from discord.ext import commands
 import logging
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler = logging.FileHandler(
+    filename='discord.log',
+    encoding='utf-8',
+    mode='w')
+handler.setFormatter(logging.Formatter(
+    '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
 client = commands.Bot(command_prefix="$")
@@ -16,9 +19,10 @@ client.load_extension("cogs.fun")
 client.load_extension("cogs.events")
 client.load_extension("cogs.help")
 
+
 @client.command()
 async def purge(ctx, amount=1):
     if ctx.author.id == 525005875098812416:
         await ctx.channel.purge(limit=(amount + 1))
 
-client.run("NjcyMTkwMjI4NDY3MDIzODc2.Xkg6tA.ilPi1A5ELTgboahy8AeR0v5obfo")
+client.run("NjcyMTkwMjI4NDY3MDIzODc2.XkhFhg.BsFpRH-mgZmuBRHJYXlF4dAvA08")
